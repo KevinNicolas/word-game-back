@@ -7,12 +7,13 @@
     "dev": "ts-node src/index.ts",
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
     "lint:fix": "eslint --ignore-path .eslintignore --ext .js,.ts . --fix",
-    "build": "pnpm lint && pnpm format && tsc",
+    "build": "yarn lint && yarn format && tsc",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "prepare": "husky install"
   },
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.26.1",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "rxjs": "^7.5.5"
@@ -35,8 +36,8 @@
   "pre-commit": "lint-staged",
   "lint-staged": {
     "**/*.ts": [
-      "pnpm eslint --fix",
-      "pnpm prettier --write"
+      "yarn eslint --fix",
+      "yarn prettier --write"
     ]
   }
 }
