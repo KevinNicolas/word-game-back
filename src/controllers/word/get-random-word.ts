@@ -29,7 +29,7 @@ const getRandomWord$ = (category?: string) =>
 export const getRandomWord = (req: Request, res: Response) => {
   const { category } = req.query
   getRandomWord$(category?.toString()).subscribe({
-    next: (word: string) => res.status(200).send({ word: parseWord(word) }),
+    next: (word: string) => res.status(200).send({ word: parseWord(word).replace(',', '') }),
 
     error: (error) => {
       res.status(500).send({ error })
